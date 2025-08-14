@@ -1,0 +1,250 @@
+{
+  "step1": [
+    {
+      "id": "ctl00_ContentPlaceHolder1_txtadharno",
+      "name": "ctl00$ContentPlaceHolder1$txtadharno",
+      "tag": "input",
+      "type": "text",
+      "label": "Your Aadhaar No",
+      "placeholder": "Your Aadhaar No",
+      "required": true,
+      "maxlength": 12,
+      "pattern": "^[0-9]{12}$",
+      "readonly": false,
+      "hidden": false,
+      "dataVals": {},
+      "options": null
+    },
+    {
+      "id": "ctl00_ContentPlaceHolder1_txtownername",
+      "name": "ctl00$ContentPlaceHolder1$txtownername",
+      "tag": "input",
+      "type": "text",
+      "label": "Name as per Aadhaar",
+      "placeholder": "Name as per Aadhaar",
+      "required": true,
+      "maxlength": 100,
+      "pattern": null,
+      "readonly": false,
+      "hidden": false,
+      "dataVals": {},
+      "options": null
+    },
+    {
+      "id": "ctl00_ContentPlaceHolder1_chkDecarationA",
+      "name": "ctl00$ContentPlaceHolder1$chkDecarationA",
+      "tag": "input",
+      "type": "checkbox",
+      "label": null,
+      "placeholder": null,
+      "required": true,
+      "maxlength": null,
+      "pattern": null,
+      "readonly": false,
+      "hidden": false,
+      "dataVals": {},
+      "options": null
+    },
+    {
+      "id": "ctl00_ContentPlaceHolder1_btnValidateAadhaar",
+      "name": "ctl00$ContentPlaceHolder1$btnValidateAadhaar",
+      "tag": "input",
+      "type": "submit",
+      "label": null,
+      "placeholder": null,
+      "required": false,
+      "maxlength": null,
+      "pattern": null,
+      "readonly": false,
+      "hidden": false,
+      "dataVals": {},
+      "options": null
+    }
+  ],
+  "step2": [
+    {
+      "id": "txtPAN",
+      "name": "ctl00$ContentPlaceHolder1$txtPAN",
+      "tag": "input",
+      "type": "text",
+      "label": "PAN Number",
+      "placeholder": "Enter PAN",
+      "required": true,
+      "maxlength": 10,
+      "pattern": "^[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}$"
+    },
+    {
+      "id": "txtEnterpriseName",
+      "name": "ctl00$ContentPlaceHolder1$txtEnterpriseName",
+      "tag": "input",
+      "type": "text",
+      "label": "Name of Enterprise",
+      "required": true,
+      "maxlength": 200
+    },
+    {
+      "id": "ddlOrgType",
+      "name": "ctl00$ContentPlaceHolder1$ddlOrgType",
+      "tag": "select",
+      "label": "Type of Organisation",
+      "required": true,
+      "options": [
+        {
+          "value": "proprietorship",
+          "text": "Proprietorship"
+        },
+        {
+          "value": "partnership",
+          "text": "Partnership"
+        },
+        {
+          "value": "pvtltd",
+          "text": "Private Limited Company"
+        },
+        {
+          "value": "publicltd",
+          "text": "Public Limited Company"
+        }
+      ]
+    },
+    {
+      "id": "txtIncorpDate",
+      "name": "ctl00$ContentPlaceHolder1$txtIncorpDate",
+      "tag": "input",
+      "type": "date",
+      "label": "Date of Incorporation / Registration",
+      "required": true
+    },
+    {
+      "id": "rblGSTIN",
+      "name": "ctl00$ContentPlaceHolder1$rblGSTIN",
+      "tag": "radio",
+      "label": "Do you have GSTIN?",
+      "options": [
+        {
+          "value": "yes",
+          "text": "Yes"
+        },
+        {
+          "value": "no",
+          "text": "No"
+        }
+      ],
+      "required": true
+    },
+    {
+      "id": "txtGSTIN",
+      "name": "ctl00$ContentPlaceHolder1$txtGSTIN",
+      "tag": "input",
+      "type": "text",
+      "label": "GSTIN Number",
+      "placeholder": "Enter GSTIN",
+      "maxlength": 15,
+      "pattern": "^[0-9]{2}[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}[Zz]{1}[0-9A-Za-z]{1}$",
+      "required": false
+    },
+    {
+      "id": "ddlSocialCategory",
+      "name": "ctl00$ContentPlaceHolder1$ddlSocialCategory",
+      "tag": "select",
+      "label": "Social Category of Entrepreneur",
+      "required": true,
+      "options": [
+        {
+          "value": "gen",
+          "text": "General"
+        },
+        {
+          "value": "sc",
+          "text": "SC"
+        },
+        {
+          "value": "st",
+          "text": "ST"
+        },
+        {
+          "value": "obc",
+          "text": "OBC"
+        }
+      ]
+    },
+    {
+      "id": "rblPhysicallyHandicapped",
+      "name": "ctl00$ContentPlaceHolder1$rblPhysicallyHandicapped",
+      "tag": "radio",
+      "label": "Physically Handicapped?",
+      "options": [
+        {
+          "value": "yes",
+          "text": "Yes"
+        },
+        {
+          "value": "no",
+          "text": "No"
+        }
+      ],
+      "required": true
+    },
+    {
+      "id": "txtAuthorisedName",
+      "name": "ctl00$ContentPlaceHolder1$txtAuthorisedName",
+      "tag": "input",
+      "type": "text",
+      "label": "Authorised Person Name",
+      "required": true,
+      "maxlength": 100
+    },
+    {
+      "id": "txtMobile",
+      "name": "ctl00$ContentPlaceHolder1$txtMobile",
+      "tag": "input",
+      "type": "tel",
+      "label": "Mobile Number",
+      "pattern": "^[0-9]{10}$",
+      "maxlength": 10,
+      "required": true
+    },
+    {
+      "id": "txtEmail",
+      "name": "ctl00$ContentPlaceHolder1$txtEmail",
+      "tag": "input",
+      "type": "email",
+      "label": "Email ID",
+      "required": true
+    },
+    {
+      "id": "ddlNICCode",
+      "name": "ctl00$ContentPlaceHolder1$ddlNICCode",
+      "tag": "select",
+      "label": "NIC 2-digit Code",
+      "required": true,
+      "options": [
+        {
+          "value": "01",
+          "text": "Agriculture, forestry and fishing"
+        },
+        {
+          "value": "10",
+          "text": "Manufacture of food products"
+        }
+      ]
+    },
+    {
+      "id": "rblMajorActivity",
+      "name": "ctl00$ContentPlaceHolder1$rblMajorActivity",
+      "tag": "radio",
+      "label": "Major Activity",
+      "options": [
+        {
+          "value": "manufacturing",
+          "text": "Manufacturing"
+        },
+        {
+          "value": "service",
+          "text": "Service"
+        }
+      ],
+      "required": true
+    }
+  ]
+}

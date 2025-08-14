@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+:root{
+  --udyam-blue: #0b63d6; /* adjust if required */
+}

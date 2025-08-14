@@ -1,0 +1,73 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum OrgType {
+  proprietorship
+  partnership
+  pvtltd
+  publicltd
+}
+enum SocialCategory {
+  gen
+  sc
+  st
+  obc
+}
+
+enum MajorActivity {
+  manufacturing
+  service
+}
+model Otp {
+  id         Int      @id @default(autoincrement())
+  aadhaarKey String   // hashed key derived from Aadhaar (we won't store full Aadhaar)
+  code       String
+  expiresAt  DateTime
+  verifiedAt DateTime?
+  attempts   Int      @default(0)
+  createdAt  DateTime @default(now())
+
+  @@index([aadhaarKey])
+}
+
+model UdyamApplication {
+  id                Int      @id @default(autoincrement())
+  // We DO NOT store full Aadhaar for safety — store derived fields instead
+  aadhaarKey        String   // e.g., sha256 hash of the aadhaar (digits only)
+  aadhaarLast4      String   // last 4 digits for display/reference
+  ownerName         String
+  consentAt         DateTime
+  otpVerified       Boolean  @default(false)
+
+  // Step 2 fields (nullable until submitted)
+  pan               String?  @db.VarChar(10)
+  enterpriseName    String?
+  orgType           OrgType?
+  incorpDate        DateTime?
+  hasGstin          Boolean?
+  gstin             String?  @db.VarChar(15)
+  socialCategory    SocialCategory?
+  physicallyDisabled Boolean?
+  authorisedName    String?
+  mobile            String?  @db.VarChar(10)
+  email             String?
+  nic2Digit         String?  @db.VarChar(2)
+  majorActivity     MajorActivity?
+
+  createdAt         DateTime @default(now())
+  submittedAt       DateTime?
+
+  @@index([aadhaarKey])
+}
