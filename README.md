@@ -14,6 +14,7 @@ It consists of a **React + Vite frontend** and a **Node.js + Express backend** t
 - Input validation with error handling
 - Responsive design with Tailwind CSS
 - REST API integration
+- Dockerized for easy deployment
 
 ---
 
@@ -35,6 +36,7 @@ It consists of a **React + Vite frontend** and a **Node.js + Express backend** t
 **Development**
 - Nodemon (backend auto-restart)
 - ESLint
+- Docker & Docker Compose
 
 ---
 
@@ -66,7 +68,10 @@ udyam-openbiz/
 │   ├── .gitignore
 │   └── .env                 # Frontend env vars
 │
-├── package.json             # (Optional root config)
+├── docker-compose.yml       # Multi-container configuration
+├── Dockerfile.frontend      # Frontend Docker config
+├── Dockerfile.backend       # Backend Docker config
+├── nginx.conf               # Nginx config for frontend
 ├── README.md
 └── .gitignore
 ```
@@ -75,21 +80,16 @@ udyam-openbiz/
 
 ## 🖼 Screenshots
 
-> Replace `path-to-image` with your actual image URLs from GitHub or local project.
-
 ### Step 1: Aadhaar Verification  
 <img width="1890" height="855" alt="image" src="https://github.com/user-attachments/assets/e7e5270a-3b7c-4d3c-8194-cebd438ab376" />
-
 
 ### Step 2: Application Form  
 <img width="1889" height="866" alt="image" src="https://github.com/user-attachments/assets/d8de8e8e-9f2e-45cd-8aee-1bce96ca56bc" />
 <img width="1893" height="854" alt="image" src="https://github.com/user-attachments/assets/a38db408-81b7-437f-8530-a2a8a2a8ea88" />
 
-
-
 ---
 
-## ⚙️ Installation & Running
+## ⚙️ Installation & Running (Local)
 
 ### 1️⃣ Clone the repository
 ```bash
@@ -133,6 +133,58 @@ Run frontend:
 npm run dev
 ```
 Frontend will run on **http://localhost:5173**
+
+---
+
+## 🐳 Running with Docker
+
+This project includes **Docker & Docker Compose** configuration for easy deployment.
+
+### 1️⃣ Build the containers
+```bash
+docker-compose build
+```
+
+### 2️⃣ Run the containers
+```bash
+docker-compose up
+```
+
+The following services will be available:
+- **Frontend** → [http://localhost:3000](http://localhost:3000)
+- **Backend API** → [http://localhost:5000](http://localhost:5000)
+
+---
+
+### 3️⃣ Stopping containers
+```bash
+docker-compose down
+```
+
+---
+
+### 4️⃣ Prisma binary fix for Docker
+If you get the error:
+```
+Prisma Client could not locate the Query Engine for runtime "debian-openssl-3.0.x"
+```
+Open `backend/prisma/schema.prisma` and update:
+```prisma
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
+}
+```
+Then run:
+```bash
+cd backend
+npx prisma generate
+```
+Rebuild Docker:
+```bash
+docker-compose build --no-cache
+docker-compose up
+```
 
 ---
 
